@@ -17,9 +17,31 @@ const nombre = 'Jhonnatan Suarez';
 const titulo = 'Curso de Node';
  
  
+app.get('/', (req, res) => {
+    res.render('home', {
+        nombre,
+        titulo
+    });
+});
+
+app.get('/generic', (req, res) => {
+    // res.sendFile( __dirname + '/public/generic.html');
+    res.render('generic', {
+        nombre,
+        titulo
+    });
+});
+
+app.get('/elements', (req, res) => {
+    // res.sendFile( __dirname + '/public/elements.html');
+    res.render('elements', {
+        nombre,
+        titulo
+    });
+});
 
 app.get('*', (req, res) => {
-    res.sendFile( __dirname + '/public/index.html');
+    res.sendFile( __dirname + '/public/404.html');
 });
 
 app.listen(port, () => {
